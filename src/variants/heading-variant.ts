@@ -14,7 +14,7 @@ export const HeadingVariants = tv({
     size: {
       '3xs': 'sm:text-md text-xs',
       '2xs': 'sm:text-lg text-base',
-      xs: 'sm:text-2xl text-lg',
+      xs: 'sm:text-2xl text-xl',
       sm: 'sm:text-3xl text-xl',
       md: 'sm:text-4xl text-2xl',
       lg: 'sm:text-5xl text-3xl',
