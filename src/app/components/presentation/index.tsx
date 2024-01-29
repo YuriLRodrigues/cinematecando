@@ -9,5 +9,5 @@ export const Presentation = async () => {
     list: 'popular',
   })
 
-  return <PresentationSliderWithThumbs movie={movies} />
+  return <PresentationSliderWithThumbs movies={movies} />
 }
