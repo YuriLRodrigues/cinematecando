@@ -5,6 +5,7 @@ import './globals.css'
 import { Footer } from '@/components/ui/footer'
 import { Header } from '@/components/ui/header/index'
 
+import { cn } from '@/lib/utils'
 import { Providers } from '@/providers/providers'
 
 const poppins = Poppins({ subsets: ['latin'], weight: '600' })
@@ -47,7 +48,10 @@ export default function RootLayout({
     <html lang="pt-br">
       <body
         id="app"
-        className={`${poppins.className} overflow-x-hidden duration-300 dark:bg-dark-blue-main`}
+        className={cn(
+          `${poppins.className}`,
+          `overflow-x-hidden duration-300 dark:bg-dark-blue-main`,
+        )}
       >
         <Providers>
           <Header />
