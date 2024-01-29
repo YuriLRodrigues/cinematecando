@@ -1,13 +1,13 @@
 import { movieFactory } from '@/infra/factory/movies.factory'
 
-import { SliderThumbs } from './slider-thumbs'
+import { PresentationSliderWithThumbs } from './presentation-slider-with-thumbs'
 
 export const Presentation = async () => {
-  const movies = await movieFactory().findAll({
+  const movies = await movieFactory().findAllByListType({
     page: '1',
     token: process.env.API_BEARER_TOKEN!,
-    list: 'top_rated',
+    list: 'popular',
   })
 
-  return <SliderThumbs movies={movies} />
+  return <PresentationSliderWithThumbs movies={movies} />
 }
