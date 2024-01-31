@@ -60,7 +60,7 @@ export const MovieDetails = ({ movie, releaseDate }: MovieDetailsProps) => {
       </Text>
       <FlexContainer gap="4">
         <ReadMoreButton link={`movie/${movie.id}`} />
-        <AddToMyListButton movieId={movie.id} />
+        <AddToMyListButton movie={movie} />
       </FlexContainer>
     </div>
   )
