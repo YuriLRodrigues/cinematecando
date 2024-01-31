@@ -1,4 +1,8 @@
-import { movieFactory } from '@/infra/factory/movies.factory'
+import { Suspense } from 'react'
+
+import { PosterLoading } from './components/poster/poster-loading'
+import { PosterWrapper } from './components/poster/poster-wrapper'
+import { Container } from '@/components/interface/container'
 
 // export async function generateStaticParams({
 //   params,
@@ -13,14 +17,16 @@ import { movieFactory } from '@/infra/factory/movies.factory'
 //   return movie
 // }
 
-export default async function MovieDetails({
-  params,
-}: {
-  params: { slug: string }
-}) {
+type MovieDetailsProps = {
+  params: { slug: number }
+}
+
+export default async function MovieDetails({ params }: MovieDetailsProps) {
   return (
-    <div>
-      <p>Movie: {params.slug}</p>
-    </div>
+    <Container mt={24}>
+      <Suspense fallback={<PosterLoading />}>
+        <PosterWrapper params={params.slug} />
+      </Suspense>
+    </Container>
   )
 }
