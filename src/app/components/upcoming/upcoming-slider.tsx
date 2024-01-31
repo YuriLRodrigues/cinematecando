@@ -52,7 +52,7 @@ export const UpcomingSlider = ({ movies }: UpcomingSliderProps) => {
           return (
             <SwiperSlide
               key={movie.id}
-              className="min-h-96 w-56 max-w-56 cursor-pointer rounded-md"
+              className="min-h-96 min-w-52 max-w-56 cursor-pointer rounded-md"
             >
               <Link href={`movie/${movie.id}`}>
                 <ImageBlurLoading
