@@ -54,8 +54,10 @@ export default function RootLayout({
         )}
       >
         <Providers>
-          <Header />
-          {children}
+          <div className="mx-auto max-w-[1920px]">
+            <Header />
+            {children}
+          </div>
           <Footer />
         </Providers>
       </body>
