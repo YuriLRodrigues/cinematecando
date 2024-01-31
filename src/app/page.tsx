@@ -11,7 +11,7 @@ import { MoviesUpcomingLoading } from './components/upcoming/loading-upcoming-ca
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center overflow-x-hidden pt-12">
+    <main className="flex min-h-screen flex-col items-center overflow-x-hidden pt-12 duration-300">
       <Suspense fallback={<MoviesPresentationLoading />}>
         <Presentation />
       </Suspense>
