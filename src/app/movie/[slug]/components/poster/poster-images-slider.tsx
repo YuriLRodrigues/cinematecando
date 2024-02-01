@@ -38,20 +38,6 @@ export const PosterImagesSlider = ({ images }: PosterImagesSliderProps) => {
         className="mySwiper relative w-full !pt-16 md:!mt-auto"
         slidesPerView={'auto'}
         spaceBetween={10}
-        // breakpoints={{
-        //   10: {
-        //     spaceBetween: 15,
-        //   },
-        //   768: {
-        //     spaceBetween: 10,
-        //   },
-        //   1024: {
-        //     spaceBetween: 30,
-        //   },
-        //   1440: {
-        //     spaceBetween: 40,
-        //   },
-        // }}
       >
         <PrevNextSlideButtons
           next={nextSlide}
@@ -62,7 +48,7 @@ export const PosterImagesSlider = ({ images }: PosterImagesSliderProps) => {
         {images.backdrops.map((img, i) => (
           <SwiperSlide key={i} className="h-36 w-52 overflow-hidden rounded-md">
             <ImageBlurLoading
-              src={`https://image.tmdb.org/t/p/original${img.file_path}`}
+              src={`${img.file_path ? `https://image.tmdb.org/t/p/original${img.file_path}` : '/default-movie-card.png'}`}
               width={500}
               height={500}
               className="aspect-square w-full object-cover object-center"
