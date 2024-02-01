@@ -22,7 +22,6 @@ import {
   Scrollbar,
   A11y,
   Parallax,
-  Pagination,
   Autoplay,
 } from 'swiper/modules'
 import { Swiper, SwiperSlide } from 'swiper/react'
@@ -54,11 +53,8 @@ export const PresentationSliderWithThumbs = ({ movies }: SliderThumbsProps) => {
       <Swiper
         onSwiper={(e) => (swiperRef.current = e)}
         thumbs={{ swiper: thumbsSwiper }}
-        modules={[FreeMode, Thumbs, Parallax, Pagination, Autoplay]}
+        modules={[FreeMode, Thumbs, Parallax, Autoplay]}
         autoplay={true}
-        pagination={{
-          type: 'progressbar',
-        }}
         onSlideChange={(e) => handleSlideInfo(e)}
         parallax={true}
         className="mySwiper2 w-full"
@@ -79,8 +75,8 @@ export const PresentationSliderWithThumbs = ({ movies }: SliderThumbsProps) => {
               <div className="absolute z-[20] h-full w-full bg-gradient-to-r from-dark-blue-main to-transparent" />
               <ImageBlurLoading
                 src={`https://image.tmdb.org/t/p/original${movie.backdrop_path}`}
-                width={1920}
-                height={500}
+                width={1850}
+                height={600}
                 className="h-full w-full object-cover object-center"
                 alt={movie.title}
               />
@@ -129,8 +125,7 @@ export const PresentationSliderWithThumbs = ({ movies }: SliderThumbsProps) => {
         freeMode={true}
         rewind={true}
         watchSlidesProgress={true}
-        scrollbar={{ draggable: true, dragSize: 'auto' }}
-        modules={[FreeMode, Navigation, Thumbs, Scrollbar, A11y]}
+        modules={[FreeMode, Navigation, Thumbs, A11y]}
         className="mySwiper mb-10 mt-3 max-h-[180px] w-full !px-6 !pr-12 !pt-12"
       >
         <Heading
