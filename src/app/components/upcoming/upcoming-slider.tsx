@@ -31,7 +31,7 @@ export const UpcomingSlider = ({ movies }: UpcomingSliderProps) => {
             spaceBetween: 15,
           },
           768: {
-            spaceBetween: 10,
+            spaceBetween: 20,
           },
           1024: {
             spaceBetween: 30,
@@ -56,7 +56,7 @@ export const UpcomingSlider = ({ movies }: UpcomingSliderProps) => {
             >
               <Link href={`movie/${movie.id}`}>
                 <ImageBlurLoading
-                  src={`https://image.tmdb.org/t/p/original${movie.poster_path}`}
+                  src={`${movie.poster_path ? `https://image.tmdb.org/t/p/original${movie.poster_path}` : '/default-movie-card.png'}`}
                   width={500}
                   height={500}
                   className="aspect-square h-96 w-full rounded-md object-cover object-center duration-300 hover:scale-95"
