@@ -2,6 +2,7 @@ import { Suspense } from 'react'
 
 import { MyListLoading } from './components/my-list-loading'
 import { MyListMovies } from './components/my-list-movies'
+import { MyListSeries } from './components/my-list-series'
 import { Container } from '@/components/interface/container'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
 
@@ -21,7 +22,11 @@ export default function MyList() {
             <MyListMovies />
           </TabsContent>
         </Suspense>
-        <TabsContent value="series">Change your password here.</TabsContent>
+        <TabsContent value="series">
+          <Suspense fallback={<MyListLoading />}>
+            <MyListSeries />
+          </Suspense>
+        </TabsContent>
       </Tabs>
     </Container>
   )
