@@ -21,6 +21,7 @@ export const Theme = ({ className, ...props }: ThemeProps) => {
 
   return (
     <button
+      aria-label="theme-button"
       className={cn(
         `relative flex cursor-pointer justify-between gap-5 rounded-full bg-zinc-800 p-3 text-white duration-300 dark:bg-white`,
         className,
