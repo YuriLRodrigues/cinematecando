@@ -54,7 +54,7 @@ export const SearchBar = ({ className, ...props }: ComponentProps<'input'>) => {
     const value = searchRef.current?.value.toLowerCase()
 
     if (value) {
-      router.push(pathname + 'search?' + createQueryString('query', value))
+      router.push('/' + 'search?' + createQueryString('query', value))
     } else {
       router.push('/')
     }
@@ -69,7 +69,7 @@ export const SearchBar = ({ className, ...props }: ComponentProps<'input'>) => {
         defaultValue={defaultValue || undefined}
         // onKeyUp={handleSearchMovies}
         className={cn(
-          'w-fit max-w-72 rounded-xl bg-zinc-100 p-2 pr-8 outline-none duration-300 dark:border-dark-blue-main dark:bg-dark-blue',
+          'w-fit max-w-72 rounded-xl bg-zinc-100 p-2 pr-8 outline-none dark:border-dark-blue-main dark:bg-dark-blue',
           className,
         )}
         {...props}
