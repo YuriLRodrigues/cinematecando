@@ -7,6 +7,7 @@ type SlideButtonProps = ComponentProps<'button'>
 export const SlideButton = ({ className, ...props }: SlideButtonProps) => {
   return (
     <button
+      aria-label="button-slide"
       className={cn(
         'flex h-10 w-10 items-center justify-center rounded-full bg-dark-blue-main text-blue-main-highlight',
         className,

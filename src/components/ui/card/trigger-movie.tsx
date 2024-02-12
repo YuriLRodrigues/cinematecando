@@ -19,6 +19,11 @@ export const TriggerMovie = ({ movie }: AddToListProps) => {
   }))
 
   const handleAdd = () => {
+    // const storedMovies: Movie[] = localStorage.getItem('movies') ?? []
+    // const allMovies = [...storedMovies, movie]
+
+    // localStorage.setItem('movies', JSON.stringify(allMovies))
+
     add(movie)
   }
 

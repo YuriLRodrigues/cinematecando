@@ -3,12 +3,12 @@
 import { ComponentProps } from 'react'
 
 import { useMovieStore } from '@/store/use-movie-store'
-import { Movie } from '@/types/movie'
+import { Serie } from '@/types/serie'
 
 import { ButtonAction } from './button-action'
 
 type AddToListProps = ComponentProps<'button'> & {
-  serie: Movie
+  serie: Serie
 }
 
 export const TriggerSerie = ({ serie }: AddToListProps) => {
