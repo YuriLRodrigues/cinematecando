@@ -21,7 +21,7 @@ export const ListMovies = async ({ searchParams }: SearchParamsListMovies) => {
 
   return (
     <>
-      <ContainerCard>
+      <ContainerCard className="px-3 lg:px-16">
         {!isEmpty &&
           movies.results.map((movie) => {
             return (
@@ -35,7 +35,11 @@ export const ListMovies = async ({ searchParams }: SearchParamsListMovies) => {
           })}
       </ContainerCard>
       {visiblePagination && (
-        <PaginationApp actual_page={searchParams.page ?? 1} total_pages={500} />
+        <PaginationApp
+          link="/movies"
+          actual_page={searchParams.page ?? 1}
+          total_pages={500}
+        />
       )}
     </>
   )

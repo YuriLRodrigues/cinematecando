@@ -5,7 +5,7 @@ import { ContainerCard } from '@/components/ui/card/container-card'
 
 export const ListMoviesLoading = () => {
   return (
-    <ContainerCard className="my-10">
+    <ContainerCard className="my-10 px-3 lg:px-16">
       {Array.from({ length: 10 }).map((_, item) => (
         <Card.Root key={item} className="animate-pulse">
           <Image
