@@ -78,7 +78,7 @@ export const NavMenu = ({ genres, links }: NavMenuGenresProps) => {
                 <NavigationMenuLink
                   className={cn(
                     navigationMenuTriggerStyle(),
-                    'bg-transparent text-black duration-300 dark:text-white',
+                    'animate-none bg-transparent text-black duration-0 dark:text-white',
                     `${pathName === link.url && 'text-blue-main-highlight dark:text-blue-main-highlight'} `,
                   )}
                 >
