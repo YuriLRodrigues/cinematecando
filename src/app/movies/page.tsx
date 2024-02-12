@@ -6,7 +6,7 @@ import { Container } from '@/components/interface/container'
 
 const Movies = ({ searchParams }: SearchParamsListMovies) => {
   return (
-    <Container mt={24} className="px-3 lg:px-16">
+    <Container mt={24}>
       <Suspense fallback={<ListMoviesLoading />}>
         <ListMovies searchParams={searchParams} />
       </Suspense>
