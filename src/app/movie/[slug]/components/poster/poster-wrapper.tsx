@@ -47,7 +47,10 @@ export const PosterWrapper = async ({ params }: PosterWrapperProps) => {
             </Text>
 
             <Text size="sm" className="flex items-center justify-center gap-1">
-              {movieDetails.genres.map((genre) => {
+              {movieDetails.genres.map((genre, i) => {
+                if (i === movieDetails.genres.length - 1) {
+                  return `${genre.name}`
+                }
                 return `${genre.name}, `
               })}
               <Dot size={13} />
