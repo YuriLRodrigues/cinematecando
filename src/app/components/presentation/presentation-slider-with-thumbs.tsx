@@ -59,8 +59,6 @@ export const PresentationSliderWithThumbs = ({ movies }: SliderThumbsProps) => {
         parallax={true}
         className="mySwiper2 w-full"
       >
-        <PrevNextSlideButtons next={nextSlide} prev={prevSlide} />
-
         {movies.results.map((movie) => {
           const releaseDate = new Date(movie.release_date)
           return (
@@ -68,9 +66,7 @@ export const PresentationSliderWithThumbs = ({ movies }: SliderThumbsProps) => {
               key={movie.id}
               className="relative h-full md:max-h-[750px]"
             >
-              <Suspense fallback={<p>Loading...</p>}>
-                <MovieDetails movie={movie} releaseDate={releaseDate} />
-              </Suspense>
+              <MovieDetails movie={movie} releaseDate={releaseDate} />
 
               <div className="absolute z-[20] h-full w-full bg-gradient-to-r from-dark-blue-main to-transparent" />
               <ImageBlurLoading
@@ -119,15 +115,16 @@ export const PresentationSliderWithThumbs = ({ movies }: SliderThumbsProps) => {
           },
           1740: {
             slidesPerView: 9,
-            spaceBetween: 10,
+            spaceBetween: 15,
           },
         }}
         freeMode={true}
         rewind={true}
         watchSlidesProgress={true}
         modules={[FreeMode, Navigation, Thumbs, A11y]}
-        className="mySwiper mb-10 mt-3 max-h-[180px] w-full !px-6 !pr-12 !pt-12"
+        className="mySwiper max-h-[180px] w-full max-w-full !px-6 !pb-6 !pt-12 md:!mb-10 md:max-h-[200px]"
       >
+        <PrevNextSlideButtons next={nextSlide} prev={prevSlide} />
         <Heading
           HeadingType="h2"
           size="xs"
