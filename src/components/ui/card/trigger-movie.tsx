@@ -4,6 +4,7 @@ import { ComponentProps } from 'react'
 
 import { useMovieStore } from '@/store/use-movie-store'
 import { Movie } from '@/types/movie'
+import { useLocalStorage } from '@uidotdev/usehooks'
 
 import { ButtonAction } from './button-action'
 
@@ -12,6 +13,8 @@ type AddToListProps = ComponentProps<'button'> & {
 }
 
 export const TriggerMovie = ({ movie }: AddToListProps) => {
+  const [movies, setMovies] = useLocalStorage<Movie[]>('movies')
+
   const { add, remove, verify } = useMovieStore((state) => ({
     add: state.actions.addMovie,
     remove: state.actions.removeMovie,
@@ -19,16 +22,14 @@ export const TriggerMovie = ({ movie }: AddToListProps) => {
   }))
 
   const handleAdd = () => {
-    // const storedMovies: Movie[] = localStorage.getItem('movies') ?? []
-    // const allMovies = [...storedMovies, movie]
-
-    // localStorage.setItem('movies', JSON.stringify(allMovies))
-
     add(movie)
+    setMovies((oldMovies) => [...oldMovies, movie])
   }
 
   const handleRemove = () => {
     remove(movie.id)
+    const moviesFiltered = movies.filter((oldMovie) => oldMovie.id !== movie.id)
+    setMovies(moviesFiltered)
   }
 
   const isAdded = verify(movie.id)
