@@ -11,8 +11,8 @@ export const Navigation = async () => {
   })
 
   return (
-    <ul className="flex w-full flex-col justify-between space-y-3 bg-transparent lg:flex-row lg:items-center lg:justify-center lg:space-x-8 lg:space-y-0 lg:pl-0 lg:pl-16">
+    <div className="flex w-full flex-col justify-between space-y-3 bg-transparent lg:flex-row lg:items-center lg:justify-center lg:space-x-8 lg:space-y-0 lg:pl-0 lg:pl-16">
       <NavMenu genres={genres} links={NavMock} />
-    </ul>
+    </div>
   )
 }
