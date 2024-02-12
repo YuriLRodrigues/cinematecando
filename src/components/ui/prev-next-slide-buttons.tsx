@@ -19,7 +19,7 @@ export const PrevNextSlideButtons = ({
   return (
     <div
       className={cn(
-        'absolute bottom-3 right-3 z-[30] flex w-fit items-center justify-center gap-3 duration-300',
+        'absolute -top-0 right-3 z-[30] flex w-fit items-center justify-center gap-3 duration-300',
         className,
       )}
       {...props}
