@@ -8,18 +8,19 @@ import { RecommendationsLoading } from './components/recommendations/recommendat
 import { RecommendationsWrapper } from './components/recommendations/recommendations-wrapper'
 import { Container } from '@/components/interface/container'
 
-// export async function generateStaticParams({
-//   params,
-// }: {
-//   params: { slug: string }
-// }) {
-//   const movie = await movieFactory().findById({
-//     id: +params.slug,
-//     token: process.env.API_BEARER_TOKEN!,
-//   })
+import { movieFactory } from '@/infra/factory/movies.factory'
 
-//   return movie
-// }
+export async function generateStaticParams() {
+  const movies = await movieFactory().findAllByListType({
+    token: process.env.API_BEARER_TOKEN!,
+    list: 'popular',
+    page: '1',
+  })
+
+  return movies.results.map((movie) => ({
+    slug: String(movie.id),
+  }))
+}
 
 type MovieDetailsProps = {
   params: { slug: number }
@@ -27,7 +28,7 @@ type MovieDetailsProps = {
 
 export default async function MovieDetails({ params }: MovieDetailsProps) {
   return (
-    <Container mt={24}>
+    <Container mt={24} className="px-3 lg:px-16">
       <Suspense fallback={<PosterLoading />}>
         <PosterWrapper params={params.slug} />
       </Suspense>
