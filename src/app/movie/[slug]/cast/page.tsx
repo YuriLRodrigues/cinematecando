@@ -18,7 +18,7 @@ export default async function Cast({ params }: CastProps) {
   }
 
   return (
-    <Container mt={24}>
+    <Container mt={24} className="px-3 lg:px-16">
       <CastSliderByCrew
         crew={findByCastDepartament('Directing')}
         title="Diretor(a)"
