@@ -11,18 +11,20 @@ import {
 type PaginationAppProps = {
   total_pages: number
   actual_page: string
+  link: string
 }
 
 export const PaginationApp = ({
   actual_page,
   total_pages,
+  link,
 }: PaginationAppProps) => {
   return (
     <Pagination className="my-8">
       <PaginationContent>
         {+actual_page > 1 && (
           <PaginationItem>
-            <PaginationPrevious href={`/movies?page=${+actual_page - 1}`} />
+            <PaginationPrevious href={`${link}?page=${+actual_page - 1}`} />
           </PaginationItem>
         )}
 
@@ -34,21 +36,21 @@ export const PaginationApp = ({
 
         {+actual_page - 1 < total_pages && +actual_page - 1 > 0 && (
           <PaginationItem>
-            <PaginationLink href={`/movies?page=${+actual_page - 1}`}>
+            <PaginationLink href={`${link}?page=${+actual_page - 1}`}>
               {+actual_page - 1}
             </PaginationLink>
           </PaginationItem>
         )}
 
         <PaginationItem>
-          <PaginationLink href={`/movies?page=${+actual_page}`} isActive>
+          <PaginationLink href={`${link}?page=${+actual_page}`} isActive>
             {actual_page}
           </PaginationLink>
         </PaginationItem>
 
         {+actual_page + 1 < total_pages && (
           <PaginationItem>
-            <PaginationLink href={`/movies?page=${+actual_page + 1}`}>
+            <PaginationLink href={`${link}?page=${+actual_page + 1}`}>
               {+actual_page + 1}
             </PaginationLink>
           </PaginationItem>
@@ -62,7 +64,7 @@ export const PaginationApp = ({
 
         {+actual_page < total_pages && (
           <PaginationItem>
-            <PaginationNext href={`/movies?page=${+actual_page + 1}`} />
+            <PaginationNext href={`${link}?page=${+actual_page + 1}`} />
           </PaginationItem>
         )}
       </PaginationContent>
