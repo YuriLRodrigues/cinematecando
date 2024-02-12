@@ -3,8 +3,8 @@ import { tv } from 'tailwind-variants'
 export const TextVariant = tv({
   variants: {
     variant: {
-      title: 'text-muted-1',
-      subtitle: 'text-muted-3',
+      title: 'text-muted-12',
+      subtitle: 'text-muted-11',
       highlight: 'text-blue-main-highlight',
     },
     bold: {

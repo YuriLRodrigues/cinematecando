@@ -4,8 +4,8 @@ export const HeadingVariants = tv({
   base: ['font-bold tracking-tight'],
   variants: {
     variant: {
-      title: 'text-muted-1',
-      subtitle: 'text-muted-3',
+      title: 'text-muted-12',
+      subtitle: 'text-muted-1',
     },
     bold: {
       true: 'font-bold',
