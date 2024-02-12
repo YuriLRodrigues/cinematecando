@@ -1,6 +1,9 @@
+import { Suspense } from 'react'
+
 import { FlexContainer } from '@/components/interface/flex-container'
 import { Heading } from '@/components/ui/heading'
 import { Text } from '@/components/ui/text'
+import { WrapperClient } from '@/components/ui/wrapper-client'
 
 import { serieFactory } from '@/infra/factory/series.factory'
 import { Dot } from 'lucide-react'
@@ -62,7 +65,9 @@ export const PosterWrapper = async ({ params }: PosterWrapperProps) => {
           {serieDetails.overview ?? 'Descrição não informada'}
         </Text>
 
-        <AddToMyList serie={serieDetails} />
+        <WrapperClient>
+          <AddToMyList serie={serieDetails} />
+        </WrapperClient>
 
         {serieSeasons.length > 0 && <Poster.Trailers trailers={serieSeasons} />}
       </Poster.Details>

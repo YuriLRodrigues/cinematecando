@@ -1,7 +1,10 @@
+import { Suspense } from 'react'
+
 import { Card } from '@/components/ui/card'
 import { Heading } from '@/components/ui/heading'
 import { PaginationApp } from '@/components/ui/pagination-app'
 import { Text } from '@/components/ui/text'
+import { WrapperClient } from '@/components/ui/wrapper-client'
 
 import { movieFactory } from '@/infra/factory/movies.factory'
 
@@ -33,7 +36,9 @@ export const ListMoviesByGenre = async ({
                 src={movie.poster_path}
                 alt={`Movie-${movie.title}`}
               />
-              <Card.Trigger.movie movie={movie} />
+              <WrapperClient>
+                <Card.Trigger.movie movie={movie} />
+              </WrapperClient>
             </Card.Root>
           )
         })}

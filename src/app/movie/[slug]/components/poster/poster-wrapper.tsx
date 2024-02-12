@@ -1,8 +1,9 @@
-import { ComponentProps } from 'react'
+import { ComponentProps, Suspense } from 'react'
 
 import { FlexContainer } from '@/components/interface/flex-container'
 import { Heading } from '@/components/ui/heading'
 import { Text } from '@/components/ui/text'
+import { WrapperClient } from '@/components/ui/wrapper-client'
 
 import { movieFactory } from '@/infra/factory/movies.factory'
 import { cn } from '@/lib/utils'
@@ -69,7 +70,9 @@ export const PosterWrapper = async ({ params }: PosterWrapperProps) => {
           {movieDetails.overview}
         </Text>
 
-        <AddToMyList movie={movieDetails} />
+        <WrapperClient>
+          <AddToMyList movie={movieDetails} />
+        </WrapperClient>
 
         {movieImages.backdrops.length > 0 && (
           <Poster.Images images={movieImages} />

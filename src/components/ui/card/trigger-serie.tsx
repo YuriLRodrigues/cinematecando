@@ -4,7 +4,7 @@ import { ComponentProps } from 'react'
 
 import { useMovieStore } from '@/store/use-movie-store'
 import { Serie } from '@/types/serie'
-import { useLocalStorage } from '@uidotdev/usehooks'
+import { useSessionStorage } from '@uidotdev/usehooks'
 
 import { ButtonAction } from './button-action'
 
@@ -13,7 +13,7 @@ type AddToListProps = ComponentProps<'button'> & {
 }
 
 export const TriggerSerie = ({ serie }: AddToListProps) => {
-  const [series, setSeries] = useLocalStorage<Serie[]>('series')
+  const [series, setSeries] = useSessionStorage<Serie[]>('series', [])
 
   const { add, remove, verify } = useMovieStore((state) => ({
     add: state.actions.addSerie,

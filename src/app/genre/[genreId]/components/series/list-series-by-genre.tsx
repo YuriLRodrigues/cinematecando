@@ -1,7 +1,10 @@
+import { Suspense } from 'react'
+
 import { Card } from '@/components/ui/card'
 import { Heading } from '@/components/ui/heading'
 import { PaginationApp } from '@/components/ui/pagination-app'
 import { Text } from '@/components/ui/text'
+import { WrapperClient } from '@/components/ui/wrapper-client'
 
 import { serieFactory } from '@/infra/factory/series.factory'
 
@@ -32,7 +35,9 @@ export const ListSeriesByGenre = async ({
           return (
             <Card.Root key={serie.id}>
               <Card.Image src={serie.poster_path} alt={`serie-${serie.name}`} />
-              <Card.Trigger.serie serie={serie} />
+              <WrapperClient>
+                <Card.Trigger.serie serie={serie} />
+              </WrapperClient>
             </Card.Root>
           )
         })}

@@ -4,6 +4,7 @@ import { Poppins } from 'next/font/google'
 import './globals.css'
 import { Footer } from '@/components/ui/footer'
 import { Header } from '@/components/ui/header/index'
+import { WrapperClient } from '@/components/ui/wrapper-client'
 
 import { cn } from '@/lib/utils'
 import { Providers } from '@/providers/providers'
@@ -53,13 +54,15 @@ export default function RootLayout({
           `overflow-x-hidden duration-300 dark:bg-dark-blue-main`,
         )}
       >
-        <Providers>
-          <div className="mx-auto max-w-[1920px]">
-            <Header />
-            {children}
-          </div>
-          <Footer />
-        </Providers>
+        <WrapperClient>
+          <Providers>
+            <div className="mx-auto max-w-[1920px]">
+              <Header />
+              {children}
+            </div>
+            <Footer />
+          </Providers>
+        </WrapperClient>
       </body>
     </html>
   )

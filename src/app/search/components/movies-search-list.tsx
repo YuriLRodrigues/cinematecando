@@ -1,7 +1,9 @@
 import Link from 'next/link'
+import { Suspense } from 'react'
 
 import { Card } from '@/components/ui/card'
 import { PaginationApp } from '@/components/ui/pagination-app'
+import { WrapperClient } from '@/components/ui/wrapper-client'
 
 import { searchFactory } from '@/infra/factory/search.factory'
 
@@ -34,7 +36,9 @@ export const MoviesSearchList = async ({
                 alt={`movie-${movie.title}`}
               />
             </Link>
-            <Card.Trigger.movie movie={movie} />
+            <WrapperClient>
+              <Card.Trigger.movie movie={movie} />
+            </WrapperClient>
           </Card.Root>
         ))}
       </div>

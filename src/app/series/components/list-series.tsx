@@ -1,8 +1,10 @@
 import Link from 'next/link'
+import { Suspense } from 'react'
 
 import { Card } from '@/components/ui/card'
 import { ContainerCard } from '@/components/ui/card/container-card'
 import { PaginationApp } from '@/components/ui/pagination-app'
+import { WrapperClient } from '@/components/ui/wrapper-client'
 
 import { serieFactory } from '@/infra/factory/series.factory'
 
@@ -30,7 +32,9 @@ export const ListSeries = async ({ searchParams }: SearchParamsListSeries) => {
                 <Link href={`/serie/${serie.id}`}>
                   <Card.Image src={serie.poster_path} alt={serie.name} />
                 </Link>
-                <Card.Trigger.serie serie={serie} />
+                <WrapperClient>
+                  <Card.Trigger.serie serie={serie} />
+                </WrapperClient>
               </Card.Root>
             )
           })}

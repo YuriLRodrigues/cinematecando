@@ -1,8 +1,10 @@
 import Link from 'next/link'
+import { Suspense } from 'react'
 
 import { Card } from '@/components/ui/card'
 import { ContainerCard } from '@/components/ui/card/container-card'
 import { PaginationApp } from '@/components/ui/pagination-app'
+import { WrapperClient } from '@/components/ui/wrapper-client'
 
 import { movieFactory } from '@/infra/factory/movies.factory'
 
@@ -29,7 +31,9 @@ export const ListMovies = async ({ searchParams }: SearchParamsListMovies) => {
                 <Link href={`/movie/${movie.id}`}>
                   <Card.Image src={movie.poster_path} alt={movie.title} />
                 </Link>
-                <Card.Trigger.movie movie={movie} />
+                <WrapperClient>
+                  <Card.Trigger.movie movie={movie} />
+                </WrapperClient>
               </Card.Root>
             )
           })}

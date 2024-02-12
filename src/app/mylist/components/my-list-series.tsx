@@ -1,12 +1,13 @@
 'use client'
 
-import { useEffect } from 'react'
+import { Suspense, useEffect } from 'react'
 
 import { Card } from '@/components/ui/card'
+import { WrapperClient } from '@/components/ui/wrapper-client'
 
 import { useMovieStore } from '@/store/use-movie-store'
 import { Serie } from '@/types/serie'
-import { useLocalStorage } from '@uidotdev/usehooks'
+import { useSessionStorage } from '@uidotdev/usehooks'
 
 import { NoneItems } from './none-items'
 
@@ -15,7 +16,7 @@ export const MyListSeries = () => {
 
   const seriesActions = useMovieStore((state) => state.actions)
 
-  const [series, setSeries] = useLocalStorage<Serie[]>('series', [])
+  const [series, setSeries] = useSessionStorage<Serie[]>('series', [])
 
   useEffect(() => {
     seriesActions.addAllSeries(series)
@@ -26,7 +27,9 @@ export const MyListSeries = () => {
       {series.map((serie) => (
         <Card.Root key={serie.id}>
           <Card.Image src={serie.poster_path} alt={`serie-${serie.name}`} />
-          <Card.Trigger.serie serie={serie} />
+          <WrapperClient>
+            <Card.Trigger.serie serie={serie} />
+          </WrapperClient>
         </Card.Root>
       ))}
     </div>
