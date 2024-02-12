@@ -12,9 +12,9 @@ export class FindMovieByIdUseCase {
   async execute({ id, token }: Input) {
     const movie = await this.moviesRepository.findById({ id, token })
 
-    if (!movie) {
-      throw new MovieNotFoundError(id)
-    }
+    // if (!movie) {
+    //   throw new MovieNotFoundError(id)
+    // }
 
     return movie
   }

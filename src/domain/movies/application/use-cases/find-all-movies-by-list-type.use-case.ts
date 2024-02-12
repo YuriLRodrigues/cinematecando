@@ -17,9 +17,9 @@ export class FindAllMoviesByListTypeUseCase {
       list,
     })
 
-    if (!movies) {
-      throw new MoviesNotFoundError()
-    }
+    // if (!movies) {
+    //   throw new MoviesNotFoundError()
+    // }
 
     return movies
   }
