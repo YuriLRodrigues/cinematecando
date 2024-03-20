@@ -23,8 +23,6 @@ export const ImageBlurLoading = ({
         `${isLoaded} && scale-100 animate-none blur-none`,
         className,
       )}
-      priority
-      quality={100}
       {...props}
     />
   )
